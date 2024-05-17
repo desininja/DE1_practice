@@ -1,0 +1,63 @@
+What is Geohash? How are you making use of it in your project?
+-- Geohashes offer properties like arbitrary precision and the possibility of gradually removing characters from the end of the code to reduce its size (and gradually lose precision). Geohashing guarantees that the longer a shared prefix between two geohashes is, the spatially closer they are together. The reverse of this is not guaranteed, as two points can be very close but have a short or no shared prefix.
+
+What is the objective of this project? Explain the various scenarios which were tested.
+--objective of this project how to build the data pipeline from the realtime data coming from the customer and aggreget with the driver data to calculate the KPIs for the analysis and which can be visualize through the kibana .
+
+What was the size of your batch window in Spark? Why?
+1 min
+
+How will you check whether the batch interval is set correctly?
+watermark
+
+Was scalability taken into account?
+because the realtime process we don't the size of data so, we have build the pipeline to scalabiltiy .
+
+What is the Spark library for elasticsearch that you used?
+realtime spark stream lib we have use for real time processing .
+
+
+
+How did you manage to push the data into ELK?
+we have use API for puch the data to ELK
+
+
+How did you visualise the data saved on elasticsearch?
+we can use Kibana
+
+
+
+How will you calculate the amount of RAM required to hold the N no of partitions in a broker?
+
+
+What is the max size of the message a broker can receive from the producer?
+
+What is the largest size of the message that can be fetched by the customer?
+
+
+What will you do when you exceed the resource available and you need to add more brokers into Kafka cluster?
+
+
+What are the primary methods if we want to avoid large message size?
+
+
+What is old consumer and new consumer?
+
+
+What is a well-tuned Kafka Cluster?
+
+
+What is a “future” in Kafka?
+
+
+What will happen if you don’t want to use futures?
+
+
+What are the factors important for tuning in the producer?
+
+
+Explain how consumers can create a problem in the Kafka cluster?
+
+How does checkpoint interval affect the throughput?
+
+What is client id in Kafka?
