@@ -22,6 +22,9 @@ lines = spark  \
 # Select and cast the required columns
 kafkaDF = lines.selectExpr("name as key", "cast(age as string) as value")
 
+# Debug: Print schema of the DataFrame to verify
+kafkaDF.printSchema()
+
 # Write to Kafka
 query = kafkaDF  \
     .writeStream  \
@@ -31,6 +34,6 @@ query = kafkaDF  \
     .option("topic", "test")  \
     .option("checkpointLocation", "/Users/himanshu/Desktop/Upgrad Revision/DE1_practice/Spark Streaming/checkpoint_dir") \
     .start()
-
+print(kafkaDF)
 # Await termination
 query.awaitTermination()
