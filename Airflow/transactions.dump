@@ -1,0 +1,26 @@
+DROP DATABASE IF EXISTS credit_card;
+
+CREATE DATABASE IF NOT EXISTS credit_card;
+
+DROP TABLE IF EXISTS credit_card.transactions;
+
+CREATE TABLE IF NOT EXISTS credit_card.transactions (
+	id int primary key,
+    user_id VARCHAR(10),
+    item_id VARCHAR(10),
+    transaction_start BIGINT,
+    transaction_end BIGINT,
+    transaction_amount DOUBLE
+    );
+
+INSERT INTO credit_card.transactions VALUES (1, 'U101', 'I301' ,1600598377, 1600599217 ,20);
+INSERT INTO credit_card.transactions VALUES (2, 'U102', 'I302' ,1600588362, 1600588361 ,60);
+INSERT INTO credit_card.transactions VALUES (3, 'U102', 'I305' ,1600588312, 1600599326 ,-100);
+INSERT INTO credit_card.transactions VALUES (4, 'U103', 'I307' ,1600588342, 1600599332 ,20);
+INSERT INTO credit_card.transactions VALUES (5, 'U105', 'I303' ,1600588361, 1600599325 ,40);
+INSERT INTO credit_card.transactions VALUES (6, 'U106', 'I304' ,1600588325, 1600599356 ,NULL);
+INSERT INTO credit_card.transactions VALUES (7, 'U107', 'I302' ,1600588352, 1600599337 ,60);
+INSERT INTO credit_card.transactions VALUES (8, 'U103', 'I305' ,1600588336, 1600599353 ,30);
+INSERT INTO credit_card.transactions VALUES (9, 'U107', 'I302' ,1600588354, 1600599338 ,10);
+INSERT INTO credit_card.transactions VALUES (10, 'U105', 'I302' ,1600588317, 1600599326 ,50);
+
