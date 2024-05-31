@@ -1,0 +1,81 @@
+CREATE DATABASE IF NOT EXISTS events;
+
+USE events;
+
+DROP TABLE IF EXISTS booking;
+DROP TABLE IF EXISTS trip;
+
+CREATE TABLE IF NOT EXISTS booking (
+    booking_id INT,
+    city VARCHAR(50),
+    booking_ts TIMESTAMP,
+    car_type VARCHAR(10)
+    );
+
+CREATE TABLE IF NOT EXISTS trip (
+    trip_id INT,
+    booking_id INT,
+    pickup_location_id INT,
+    dropoff_location_id INT,
+    trip_start_ts TIMESTAMP,
+    trip_end_ts TIMESTAMP,
+    trip_distance INT
+    );
+
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (1, 'mumbai', '2020-09-16 10:00:10', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (2, 'bangalore', '2020-09-16 14:10:09', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (3, 'chennai', '2020-09-16 18:09:15', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (4, 'chennai', '2020-09-16 11:11:19', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (5, 'bangalore', '2020-09-16 12:16:11', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (6, 'mumbai', '2020-09-16 19:27:58', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (7, 'mumbai', '2020-09-16 19:27:58', NULL);
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (8, 'mumbai', '2020-09-16 10:00:10', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (9, 'mumbai', '2020-09-16 10:00:12', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (10, 'bangalore', '2020-09-16 04:10:15', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (11, 'bangalore', '2020-09-16 17:06:00', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (12, 'bangalore', '2020-09-16 16:10:09', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (13, 'chennai', '2020-09-16 18:10:15', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (14, 'chennai', '2020-09-16 14:06:00', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (15, 'chennai', '2020-09-16 12:10:09', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (16, 'mumbai', '2020-09-17 10:00:10', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (17, 'bangalore', '2020-09-17 14:10:09', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (18, 'chennai', '2020-09-17 18:09:15', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (19, 'chennai', '2020-09-17 11:11:19', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (20, 'bangalore', '2020-09-17 12:16:11', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (21, 'mumbai', '2020-09-17 19:27:58', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (22, 'mumbai', '2020-09-17 19:27:58', NULL);
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (23, 'mumbai', '2020-09-17 10:00:10', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (24, 'mumbai', '2020-09-17 10:00:12', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (25, 'bangalore', '2020-09-17 04:10:15', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (26, 'bangalore', '2020-09-17 17:06:00', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (27, 'bangalore', '2020-09-17 16:10:09', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (28, 'chennai', '2020-09-17 18:10:15', 'economy');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (29, 'chennai', '2020-09-17 14:06:00', 'sedan');
+INSERT INTO events.booking (booking_id, city, booking_ts, car_type) VALUES (30, 'chennai', '2020-09-17 12:10:09', 'sedan');
+
+
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (1, 1, 101, 102, '2020-09-16 10:05:10', '2020-09-16 10:15:10', 5);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (3, 3, 113, 111, '2020-09-16 18:19:15', '2020-09-16 18:59:15', 15);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (4, 4, 111, 114, '2020-09-16 11:14:19', '2020-09-16 11:34:19', 4);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (5, 5, 108, 106, '2020-09-16 12:15:11', '2020-09-16 12:19:11', 2);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (6, 6, 101, 101, '2020-09-16 19:47:58', '2020-09-16 20:27:58', 35);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (8, 8, 105, 101, '2020-09-16 10:04:10', '2020-09-16 10:12:10', 5);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (9, 9, 101, 104, '2020-09-16 10:01:12', '2020-09-16 10:10:12', 5);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (10, 10, 106, 108, '2020-09-16 04:15:15', '2020-09-16 04:20:15', 4);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (11, 11, 106, 108, '2020-09-16 17:09:00', '2020-09-16 17:28:00', 20);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (12, 12, 108, 109, '2020-09-16 16:13:09', '2020-09-16 16:19:09', 5);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (14, 14, 112, 111, '2020-09-16 14:16:00', '2020-09-16 14:56:00', 25);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (15, 15, 113, 111, '2020-09-16 12:15:09', '2020-09-16 12:25:09', 10);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (16, 16, 101, 103, '2020-09-17 10:18:10', '2020-09-17 10:58:10', 9);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (17, 17, 109, 108, '2020-09-17 14:19:09', '2020-09-17 14:39:09', 23);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (18, 18, 115, 111, '2020-09-17 18:10:15', '2020-09-17 19:10:15', 42);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (19, 19, 112, 113, '2020-09-17 11:14:19', '2020-09-17 11:19:19', 2);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (20, 20, 107, 106, '2020-09-17 12:18:11', '2020-09-17 12:28:11', 1);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (21, 21, 103, 105, '2020-09-17 19:29:58', '2020-09-17 19:49:58', 23);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (22, 22, 102, 101, '2020-09-17 19:30:58', '2020-09-17 19:50:58', 20);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (23, 23, 101, 102, '2020-09-17 10:01:10', '2020-09-17 10:31:10', 21);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (25, 25, 110, 106, '2020-09-17 04:12:15', '2020-09-17 04:22:15', 8);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (26, 26, 106, 109, '2020-09-18 17:09:00', '2020-09-18 17:29:00', 18);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (27, 27, 106, 108, '2020-09-17 16:13:09', '2020-09-17 16:43:09', 15);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (29, 29, 113, 112, '2020-09-17 14:09:00', '2020-09-17 14:29:00', 18);
+INSERT INTO events.trip (trip_id, booking_id, pickup_location_id, dropoff_location_id, trip_start_ts, trip_end_ts, trip_distance) VALUES (30, 30, 111, 112, '2020-09-17 12:11:09', '2020-09-17 12:41:09', 23);
