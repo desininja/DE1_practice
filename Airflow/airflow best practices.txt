@@ -1,0 +1,21 @@
+xThese are listed below:
+
+Do not use Airflow to debug your application code.
+
+The start date and the actual execution of a DAG differ by one schedule interval. Consider this while creating/scheduling your DAG.
+
+Never store any config file in the local file system. If possible, use XCOM to communicate small messages.
+
+By default, DAGs are turned off as a cautionary measure. Ensure that you turn them ON.
+
+Sensors are mostly idle processes. So, do not use them unnecessarily. 
+
+Use static start_date for the DAGs.
+
+Ensure that DAGs are as independent as possible.
+
+Make DAGs idempotent (running them multiple times is the same as running them once).
+
+Renaming a DAG will introduce a new DAG. You can use this to back up your DAGs.
+
+Run different components on different machines.
