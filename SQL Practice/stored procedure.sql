@@ -5,11 +5,13 @@ DELIMITER $$
 CREATE PROCEDURE sales_filter (sales_input int)
 
 BEGIN
-	select cust_id,
-    round(sales)
-    from market_fact_full
-    where round(sales) > sales_input
-    order by sales;
+	SELECT 
+    cust_id, ROUND(sales)
+FROM
+    market_fact_full
+WHERE
+    ROUND(sales) > sales_input
+ORDER BY sales;
 			
 END $$
 DELIMITER ;
